@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 export interface PeriodicElement {
   name: string;
@@ -6,6 +8,7 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
+
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: '', weight: 1, symbol: ''},
@@ -30,7 +33,22 @@ export class TabelaComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+  animal!: string;
+  name!: string;
+
+  constructor(public dialog: MatDialog) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
   ngOnInit(): void {
   }

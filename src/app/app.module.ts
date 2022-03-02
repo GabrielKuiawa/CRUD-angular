@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabelaModule } from './tabela/tabela.module';
 
-import { MatTableModule } from '@angular/material/table';
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
@@ -17,9 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     TabelaModule,
-    MatTableModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
