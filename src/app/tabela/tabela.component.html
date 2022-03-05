@@ -1,6 +1,13 @@
-<button mat-raised-button (click)="openDialog()">Pick one</button>
+<button mat-raised-button (click)="openDialog(null)">Adicionar</button>
+<button
+  mat-raised-button
+  [disabled]="!dataSource.length"
+  (click)="removeData()"
+  class="demo-button">
+  Remover
+</button>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table #table [dataSource]="dataSource"  class="mat-elevation-z8">
   
   <!-- Position Column -->
   <ng-container matColumnDef="position">

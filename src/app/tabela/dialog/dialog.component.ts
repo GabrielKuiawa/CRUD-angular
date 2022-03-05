@@ -4,10 +4,6 @@ import { PeriodicElement } from 'src/app/app.component';
 
 
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-dialog',

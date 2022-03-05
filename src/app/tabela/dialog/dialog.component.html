@@ -1,10 +1,26 @@
 <h1 mat-dialog-title>Hi </h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+
   <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data">
+    <mat-label> position </mat-label>
+    <input matInput [(ngModel)]="data.position">
   </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> name </mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label> weight </mat-label>
+    <input matInput [(ngModel)]="data.weight">
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label> symbol </mat-label>
+    <input matInput [(ngModel)]="data.symbol">
+  </mat-form-field>
+  
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
