@@ -6,23 +6,12 @@ import { DialogComponent } from './dialog/dialog.component';
 export interface PeriodicElement {
   name: string;
   position: number;
-  weight: number;
-  symbol: string;
+  editar: number;
+  delete: string;
 }
 
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: '', weight: 1, symbol: ''},
-  {position: 2, name: '', weight: 2, symbol: ''},
-  {position: 3, name: '', weight: 3, symbol: ''},
-  {position: 4, name: '', weight: 4, symbol: ''},
-  {position: 5, name: '', weight: 5, symbol: ''},
-  {position: 6, name: '', weight: 6, symbol: ''},
-  {position: 7, name: '', weight: 7, symbol: ''},
-  {position: 8, name: '', weight: 8, symbol: ''},
-  {position: 9, name: '', weight: 9, symbol: ''},
-  {position: 10, name: '', weight: 10, symbol: ''},
-];
+const ELEMENT_DATA: PeriodicElement[] = [];
 
 
 @Component({
@@ -34,7 +23,7 @@ export class TabelaComponent implements OnInit {
 
   @ViewChild(MatTable)
   table!:MatTable<any>;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'editar', 'delete'];
   dataSource = ELEMENT_DATA;
  
   
@@ -48,20 +37,24 @@ export class TabelaComponent implements OnInit {
       data: element === null ? {
         position:null,
         name:'',
-        weight:null,
-        symbol:''
+        editar:null,
+        delete:''
       }:element
     });
 
     dialogRef.afterClosed().subscribe(result => {
      if(result !== undefined){
        this.dataSource.push(result);
+       //editar
+       //this.dataSource[indice] = result;
        this.table.renderRows();
      }
     });
+    
   }
-  removeData() {
-    this.dataSource.pop();
+   
+  removeData(index:number) {
+    this.dataSource.splice(index,1);
     this.table.renderRows();
   }
 
