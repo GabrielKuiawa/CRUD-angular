@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { TabelaComponent } from './tabela.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 import { MatTableModule } from '@angular/material/table'; 
@@ -13,13 +15,15 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 
 @NgModule({
   declarations: [
     TabelaComponent,
-    DialogComponent
+    DialogComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +33,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatToolbarModule,
     FormsModule
   ],
   exports:[TabelaComponent,DialogComponent],

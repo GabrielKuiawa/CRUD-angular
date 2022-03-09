@@ -7,6 +7,7 @@ import { TabelaModule } from './tabela/tabela.module';
 
 
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 

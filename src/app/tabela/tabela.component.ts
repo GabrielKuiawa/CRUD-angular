@@ -3,11 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { DialogComponent } from './dialog/dialog.component';
 
+
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  editar: number;
-  delete: string;
+  quantidade: number;
+  adicionar: string;
+
 }
 
 
@@ -23,8 +23,9 @@ export class TabelaComponent implements OnInit {
 
   @ViewChild(MatTable)
   table!:MatTable<any>;
-  displayedColumns: string[] = ['position', 'name', 'editar', 'delete'];
+  displayedColumns: string[] = ['adicionar', 'quantidade', 'editar', 'delete'];
   dataSource = ELEMENT_DATA;
+
  
   
 
@@ -35,8 +36,8 @@ export class TabelaComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
       data: element === null ? {
-        position:null,
-        name:'',
+        adicionar:null,
+        quantidade:'',
         editar:null,
         delete:''
       }:element
@@ -52,7 +53,24 @@ export class TabelaComponent implements OnInit {
     });
     
   }
-   
+  openDialogEdit(element:PeriodicElement | null, index: number): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: element === null ? {
+        adicionar:null,
+        quantidade:'',
+        editar:null,
+        delete:''
+      }:element
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+     if(result !== undefined){
+        this.dataSource.splice(index,1, result); 
+        this.table.renderRows();
+     }
+    });
+  }
   removeData(index:number) {
     this.dataSource.splice(index,1);
     this.table.renderRows();
