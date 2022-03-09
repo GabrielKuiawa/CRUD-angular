@@ -16,6 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FooterComponent } from './footer/footer.component';
+import { TabelaRoutingModule } from './tabela-routing.module';
 
 
 
@@ -23,10 +25,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   declarations: [
     TabelaComponent,
     DialogComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
+    TabelaRoutingModule,
     MatTableModule,
     MatIconModule,
     MatDialogModule,
