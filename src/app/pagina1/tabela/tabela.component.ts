@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { DialogComponent } from './dialog/dialog.component';
-import { ELEMENTDATAService } from 'src/app/shared/element-data.service'
 
 
 export interface PeriodicElement {
@@ -12,7 +11,7 @@ export interface PeriodicElement {
 }
 
 
-
+const ELEMENT_DATA: PeriodicElement[] = [];
 
 
 @Component({
@@ -25,15 +24,13 @@ export class TabelaComponent implements OnInit {
   @ViewChild(MatTable)
   table!:MatTable<any>;
   displayedColumns: string[] = ['adicionar', 'quantidade', 'editar', 'delete'];
- 
+  dataSource = ELEMENT_DATA;
 
  
   
 
-  constructor(public dialog: MatDialog, public service:ELEMENTDATAService ) { }
-  
-  
-  
+  constructor(public dialog: MatDialog) { }
+
 
   openDialog(element:PeriodicElement | null): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -48,7 +45,7 @@ export class TabelaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
      if(result !== undefined){
-       this.service.ELEMENT_DATA.push(result);
+       this.dataSource.push(result);
        //editar
        //this.dataSource[indice] = result;
        this.table.renderRows();
@@ -69,13 +66,13 @@ export class TabelaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
      if(result !== undefined){
-        this.service.ELEMENT_DATA.splice(index,1, result); 
+        this.dataSource.splice(index,1, result); 
         this.table.renderRows();
      }
     });
   }
   removeData(index:number) {
-    this.service.ELEMENT_DATA.splice(index,1);
+    this.dataSource.splice(index,1);
     this.table.renderRows();
   }
 

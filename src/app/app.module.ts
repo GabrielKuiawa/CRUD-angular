@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TabelaModule } from './tabela/tabela.module';
+import { TabelaModule } from './pagina1/tabela/tabela.module';
 import { MatButtonModule } from '@angular/material/button';
 
 

@@ -3,20 +3,21 @@
 <button mat-raised-button (click)="openDialog(null)" class="adicionar">Adicionar</button>
 
 
-<table mat-table #table [dataSource]="service.ELEMENT_DATA"  class="mat-elevation-z8">
+<table mat-table #table [dataSource]="dataSource"  class="mat-elevation-z8">
   
+  <!-- Position Column -->
   <ng-container matColumnDef="adicionar">
     <th mat-header-cell *matHeaderCellDef>produto</th>
     <td mat-cell *matCellDef="let element"> {{element.adicionar}} </td>
   </ng-container>
 
- 
+  <!-- Name Column -->
   <ng-container matColumnDef="quantidade">
     <th mat-header-cell *matHeaderCellDef> quantidade </th>
     <td mat-cell *matCellDef="let element"> {{element.quantidade}} </td>
   </ng-container>
 
-  
+  <!-- Weight Column -->
      <ng-container matColumnDef="editar">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element; let i =index;"> 
@@ -24,13 +25,13 @@
     </td>
   </ng-container>
 
-
+  <!-- Symbol Column -->
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element; let i = index;"> 
       <button
         mat-raised-button
-        [disabled]="!this.service.ELEMENT_DATA.length"
+        [disabled]="!dataSource.length"
         (click)="removeData(i)"
         class="demo-button">
         Remover
