@@ -1,22 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from 'src/app/tabela/dialog/dialog.component';
 import { ELEMENTDATAService } from 'src/app/shared/element-data.service'
-
-
-export interface PeriodicElement {
-  quantidade: number;
-  adicionar: string;
-
-}
+import { PeriodicElement } from 'src/app/app.component';
 
 @Component({
-  selector: 'app-tabela',
-  templateUrl: './tabela.component.html',
-  styleUrls: ['./tabela.component.css']
+  selector: 'app-tabela2',
+  templateUrl: './tabela2.component.html',
+  styleUrls: ['./tabela2.component.css']
 })
-export class TabelaComponent implements OnInit {
+export class Tabela2Component implements OnInit {
 
   @ViewChild(MatTable)
   table!:MatTable<any>;

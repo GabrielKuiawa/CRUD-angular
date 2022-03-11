@@ -8,7 +8,7 @@ export class ELEMENTDATAService {
 
 
  ELEMENT_DATA: PeriodicElement[] = [];
- 
+
 
   constructor() { }
 
