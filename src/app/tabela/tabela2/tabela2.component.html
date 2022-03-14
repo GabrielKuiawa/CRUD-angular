@@ -1,4 +1,3 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <table mat-table #table [dataSource]="service.ELEMENT_DATA"  class="mat-elevation-z8">
 
   <ng-container matColumnDef="adicionar">
@@ -17,16 +16,17 @@
 
     <th mat-header-cell *matHeaderCellDef> preço </th>
     <td mat-cell *matCellDef="let element"> 
-        
-            <input class="preco" [(ngModel)]="element.preco">
-       
+        <mat-form-field appearance="fill">
+            <mat-label> preço </mat-label>
+            <input matInput [(ngModel)]="element.preco">
+        </mat-form-field>
     </td>
 
   </ng-container>
 
   <ng-container matColumnDef="valor">
 
-    <th mat-header-cell *matHeaderCellDef> preço total </th>
+    <th mat-header-cell *matHeaderCellDef> preço </th>
     <td mat-cell *matCellDef="let element"> 
       <p>{{ element.valor }}</p>
     </td>
@@ -37,7 +37,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<mat-card>{{ calcular() }}</mat-card>
-
-
+<p>{{ calcular() }}</p>
 

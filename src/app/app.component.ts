@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
 export interface PeriodicElement {
   quantidade: number;
   adicionar: string;
- 
+  preco:number;
+  valor: number;
 }
 
 
