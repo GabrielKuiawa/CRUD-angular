@@ -8,6 +8,8 @@ table {
     }
     .preco{
         max-width:15px;
+        width: 100vw;
+        
     }
 
 }

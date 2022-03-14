@@ -22,7 +22,8 @@ export class Tabela2Component implements OnInit {
     let produto = this.service.ELEMENT_DATA[i];
     produto.valor = produto.quantidade * produto.preco;
     this.total=this.total + produto.valor;
-    }return this.total
+    }
+    return this.total
   }
 
   ngOnInit(): void {

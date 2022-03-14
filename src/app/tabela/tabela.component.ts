@@ -3,13 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { DialogComponent } from './dialog/dialog.component';
 import { ELEMENTDATAService } from 'src/app/shared/element-data.service'
-
-
-export interface PeriodicElement {
-  quantidade: number;
-  adicionar: string;
-
-}
+import { PeriodicElement } from '../app.component';
 
 @Component({
   selector: 'app-tabela',
