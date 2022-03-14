@@ -7,6 +7,7 @@ export interface PeriodicElement {
   adicionar: string;
   preco:number;
   valor: number;
+  checkbox:boolean;
 }
 
 
