@@ -1,9 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatTable } from '@angular/material/table';
-import { DialogComponent } from 'src/app/tabela/dialog/dialog.component';
+import { Component, OnInit } from '@angular/core';
+
 import { ELEMENTDATAService } from 'src/app/shared/element-data.service'
-import { PeriodicElement } from 'src/app/app.component';
 
 @Component({
   selector: 'app-tabela2',
@@ -12,61 +9,20 @@ import { PeriodicElement } from 'src/app/app.component';
 })
 export class Tabela2Component implements OnInit {
 
-  @ViewChild(MatTable)
-  table!:MatTable<any>;
-  displayedColumns: string[] = ['adicionar', 'quantidade', 'editar', 'delete'];
+  total!:number;
 
+  displayedColumns: string[] = ['adicionar', 'quantidade','preço','valor'];
 
-
-
-
-  constructor(public dialog: MatDialog, public service:ELEMENTDATAService ) { }
-
-
-
-
-  openDialog(element:PeriodicElement | null): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
-      data: element === null ? {
-        adicionar:null,
-        quantidade:'',
-        editar:null,
-        delete:''
-      }:element
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-     if(result !== undefined){
-       this.service.ELEMENT_DATA.push(result);
-       //editar
-       //this.dataSource[indice] = result;
-       this.table.renderRows();
-     }
-    });
-
-  }
-  openDialogEdit(element:PeriodicElement | null, index: number): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
-      data: element === null ? {
-        adicionar:null,
-        quantidade:'',
-        editar:null,
-        delete:''
-      }:element
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-     if(result !== undefined){
-        this.service.ELEMENT_DATA.splice(index,1, result); 
-        this.table.renderRows();
-     }
-    });
-  }
-  removeData(index:number) {
-    this.service.ELEMENT_DATA.splice(index,1);
-    this.table.renderRows();
+  constructor(public service:ELEMENTDATAService ) { }
+ 
+ 
+  calcular(){
+    this.total = 0;
+    for(let i = 0; i < this.service.ELEMENT_DATA.length; i++){
+    let produto = this.service.ELEMENT_DATA[i];
+    produto.valor = produto.quantidade * produto.preco;
+    this.total=this.total + produto.valor;
+    }return this.total
   }
 
   ngOnInit(): void {
