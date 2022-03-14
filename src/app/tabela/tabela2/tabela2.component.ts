@@ -72,4 +72,11 @@ export class Tabela2Component implements OnInit {
   ngOnInit(): void {
   }
 
+  calcular() {
+    let total = 0;
+    this.service.ELEMENT_DATA.forEach(element => {
+      element.
+    });
+  }
+
 }

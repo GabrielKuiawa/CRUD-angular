@@ -20,6 +20,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FooterComponent } from './footer/footer.component';
 import { TabelaRoutingModule } from './tabela-routing.module';
 import { Tabela2Component } from './tabela2/tabela2.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -41,13 +42,15 @@ import { Tabela2Component } from './tabela2/tabela2.component';
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
+    MatCardModule,
     FormsModule
   ],
   exports:[TabelaComponent,DialogComponent,Tabela2Component],
   providers: [
    { provide: MAT_DIALOG_DATA, useValue: {} },
    { provide: MatDialogRef, useValue: {} },
-   { provide:ELEMENTDATAService, useValue:{}}],
+   //{ provide:ELEMENTDATAService, useValue:{}}
+  ],
 
 
 })

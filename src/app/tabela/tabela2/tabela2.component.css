@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+  @media  screen and (max-width: 600px){ 
+    table{
+        width: 100vw;
+        background-color: azure;
+    }
+    .preco{
+        max-width:15px;
+    }
+
+}
+
+  
